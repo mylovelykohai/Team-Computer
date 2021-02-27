@@ -22,3 +22,9 @@ Is a sample file for being used in predict.py
 
 ## SentimentAnalysisData.xlsx
 The datafile being used in train.py. This file has been preprocessed to only contain data relevant to the application. *(Only keeping happy, sad and neutral for its data)*
+
+## Modules used.
+1. sklearn
+2. pandas
+3. pickle
+4. nltk
