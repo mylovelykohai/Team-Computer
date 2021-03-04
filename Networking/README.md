@@ -4,7 +4,7 @@
 Tested using python 3.9, do not run this within IDLE.
 
 
-<h3 align="center">Quick rundown of the process that the client server goes through in this current itteration: <h3 align="center">
+<h3 align="center">Quick rundown of the process that the client server goes through in this current itteration: </h3>
 
 1. Server opens and listens on a port (Default: 8080)
 2. Client connects to the server through that port
