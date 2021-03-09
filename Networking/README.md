@@ -3,7 +3,7 @@
 
 Tested using python 3.9, and sqlite3 2.6.0. Do not run this within IDLE.
 
-<h3 align="center">Quick rundown of the process that the client server goes through in this current itteration: <h3 align="center">
+<h3 align="center">Quick rundown of the process that the client server goes through in this current itteration: </h3>
 
 1. Server opens and listens on a port (Default: 1200)
 2. Client connects to the server through that port
