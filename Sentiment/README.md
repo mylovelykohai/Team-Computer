@@ -8,6 +8,10 @@ List of components:
 4. test.txt
 5. SentimentAnalysisData.xlsx
 
+## train.py
+### Run this first
+This file is responcible for training and exporting both the model and the vectorizer. It uses SentimentAnalysisData.xlsx
+
 ## Predict.py
 Predict.py is used to do singular predictions of text, this will be the script used by the app to analyse text data and apply a emotion to them.
 
@@ -17,9 +21,6 @@ There is only 1 function in this script called pred. the syntax is pred([the pla
 
 ## preprocessin.py
 This is the file which handles all preprocessing of the data, including importation of the model and the vectorizer
-
-## train.py
-This file is responcible for training and exporting both the model and the vectorizer. It uses SentimentAnalysisData.xlsx
 
 ## test.txt 
 Is a sample file for being used in predict.py
