@@ -11,6 +11,10 @@ List of components:
 ## Predict.py
 Predict.py is used to do singular predictions of text, this will be the script used by the app to analyse text data and apply a emotion to them.
 
+### how to use
+This is a console application, therefore to run it directly and not through the app you will need to use a consol application or a IDE like spyder.
+There is only 1 function in this script called pred. the syntax is pred([the plain text to be predicted])
+
 ## preprocessin.py
 This is the file which handles all preprocessing of the data, including importation of the model and the vectorizer
 
