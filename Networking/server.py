@@ -17,7 +17,7 @@ def clientSendThread(connection, user, tCur):
          try:
 	         sendMessage = lastMessage.encode() # encode the last sent message
 	         connection.send(sendMessage) # send the client the message
-         except ConnectionResetError:
+         except (ConnectionResetError, ConnectionAbortedError) as e:
              break;	      
 
          messageTotal += 1 # increment message count
@@ -37,23 +37,28 @@ def clientThread(connection, user):
       try:
          in_message = connection.recv(1024) # wait for a message to be recieved
 
-      except ConnectionResetError: # if user closed client
+      except (ConnectionResetError, ConnectionAbortedError) as e: # if user closed client
          message = (" User " + user + " has disconnected.")
          print(message)
          lCur = con.cursor()
          lCur.execute('''INSERT INTO tbl1 VALUES (?, ?, ?);''', [epoch, "SERVER", message]) #SQL command to run
          tMessages += 1 
          break # leave loop
-         
+
       in_message = in_message.decode('utf-8')
-      recvMessage = user + ": " + in_message 
+      if in_message != "":
+         recvMessage = user + ": " + in_message  
 
-      aCur = con.cursor()
-      aCur.execute('''INSERT INTO tbl1 VALUES (?, ?, ?);''', [epoch, user, in_message]) #SQL command to run
-      con.commit() # commit it to the database
-      tMessages += 1 # add message to the message array
+         aCur = con.cursor()
+         aCur.execute('''INSERT INTO tbl1 VALUES (?, ?, ?);''', [epoch, user, in_message]) #SQL command to run
+         con.commit() # commit it to the database
+         tMessages += 1 # add message to the message array
 
-      print(recvMessage) # print message to concole
+         print(recvMessage) # print message to concole
+      
+      else:
+         break
+
 
    print("Thread for user ID", clientID, "terminating.") # announce thread termination
 
