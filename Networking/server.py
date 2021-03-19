@@ -13,7 +13,7 @@ def clientSendThread(connection, user, tCur):
 
          lastMessage = tCur.execute('''SELECT * FROM tbl1 WHERE rowid = ?;''', [messageTotal + 1])
          lastMessage = tCur.fetchall()[0] # 1D array inside of an tuple lol
-         lastMessage = (lastMessage[1] + ": " + lastMessage[2])
+         lastMessage = (lastMessage[1] + ": " + lastMessage[2]+"\n")
          try:
 	         sendMessage = lastMessage.encode() # encode the last sent message
 	         connection.send(sendMessage) # send the client the message
@@ -40,15 +40,16 @@ def clientThread(connection, user):
       except ConnectionResetError: # if user closed client
          message = (" User " + user + " has disconnected.")
          print(message)
-         tCur.execute('''INSERT INTO tbl1 VALUES (?, ?, ?);''', [epoch, "SERVER", message]) #SQL command to run
+         lCur = con.cursor()
+         lCur.execute('''INSERT INTO tbl1 VALUES (?, ?, ?);''', [epoch, "SERVER", message]) #SQL command to run
          tMessages += 1 
          break # leave loop
          
       in_message = in_message.decode('utf-8')
       recvMessage = user + ": " + in_message 
 
-
-      tCur.execute('''INSERT INTO tbl1 VALUES (?, ?, ?);''', [epoch, user, in_message]) #SQL command to run
+      aCur = con.cursor()
+      aCur.execute('''INSERT INTO tbl1 VALUES (?, ?, ?);''', [epoch, user, in_message]) #SQL command to run
       con.commit() # commit it to the database
       tMessages += 1 # add message to the message array
 
@@ -85,7 +86,7 @@ while True:
    connection,address = sock.accept()
    username = connection.recv(1024) # Recieve the username of the user
    username = username.decode('utf-8')
-   print(username, "(",address,") ", " Has connected to the  server...")
+   print(username, address, " Has connected to the  server...")
    
    clientRecvThreads.append(threading.Thread(target = clientThread, args = (connection,username,))) # Create a thread for the user's session
    clientRecvThreads[clientID].daemon = True; # daemon to true, thread will die when the main process does
