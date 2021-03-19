@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -26,13 +27,15 @@ import java.net.SocketException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 public class Message_Conversation extends AppCompatActivity {
     private RecyclerView mUsers_RecyclerView;
     private List<User> mUsers;
-
-    connectionThread connection = new connectionThread("androidAPP","127.0.0.1",1200);
+    private UsersAdapter mUsersAdapter;
+    private int mPos;
+    connectionThread connection = new connectionThread("androidAPP","52.142.184.189",1200);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +43,22 @@ public class Message_Conversation extends AppCompatActivity {
         setContentView(R.layout.activity_message__conversation);
         mUsers_RecyclerView = findViewById(R.id.users_recyclerview);
         mUsers_RecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mUsers = UsersBase.get(getApplicationContext()).getUsers();
-        mUsers_RecyclerView.setAdapter(new UsersAdapter(mUsers));
+        mUsers = UsersBase.get().getUsers();
+        mUsersAdapter = new UsersAdapter(mUsers);
+        mUsers_RecyclerView.setAdapter(mUsersAdapter);
         EditText mEdit = (EditText) findViewById((R.id.theEditText));
         configureBackBtn();
         configureSend(mEdit);
 
         connection.start();
     }
-
+    public static void SendMsg(String recievedMessage){
+        User user = new User();
+        user.setmMessage(recievedMessage);
+        Log.d("Message Added:", recievedMessage);
+        user.setmEmotion("happy");
+        UsersBase.get().newMessage(user);
+    }
     class UsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
         private List<User> mUsers;
         public UsersAdapter(List<User> users) {
@@ -65,7 +75,7 @@ public class Message_Conversation extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-            holder.bind(this.mUsers.get(position));
+            holder.bind(this.mUsers.get(position), position);
         }
 
         @Override
@@ -73,17 +83,48 @@ public class Message_Conversation extends AppCompatActivity {
             return this.mUsers.size();
         }
     }
-    class UserViewHolder extends RecyclerView.ViewHolder{
+    class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        private UUID mID;
         private TextView mMessage;
         private TextView mEmotion;
+        private int Pos;
+
         public UserViewHolder(ViewGroup container){
             super(LayoutInflater.from(Message_Conversation.this).inflate(R.layout.user_list_item, container, false));
+            itemView.setOnClickListener(this);
             mMessage = (TextView) itemView.findViewById(R.id.User_msg);
             mEmotion = (TextView) itemView.findViewById(R.id.User_emotion);
         }
-        private void bind(User user){
+        private void bind(User user, int pos){
+            Pos = pos;
+            this.mID = user.getmID();
             mEmotion.setText(user.getmEmotion());
             mMessage.setText(user.getmMessage());
+        }
+
+        @Override
+        public void onClick(View view) {
+            mPos = Pos;
+            Intent data = new Intent(Message_Conversation.this,Profile.class);
+            data.putExtra("user_id",this.mID);
+             startActivityForResult(data,1);
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if(resultCode == RESULT_OK){
+            if(requestCode == 1){
+                if(data!=null){
+                    String action = data.getStringExtra("action");
+                    if(action.equals("update")){
+                        mUsersAdapter.notifyItemChanged(mPos);
+                    }
+                    else if(action.equals("delete")){
+                        mUsersAdapter.notifyItemRemoved(mPos);
+                    }
+                }
+            }
         }
     }
     private void configureBackBtn(){
@@ -120,11 +161,22 @@ public class Message_Conversation extends AppCompatActivity {
             }
         });
     }
+    public static void NewMessage(String Message){
+
+
+    }
 }
 class User{
+    private UUID mID;
     private String mMessage;
     private String mEmotion;
 
+    public UUID getmID() {
+        return mID;
+    }
+public User(){
+        mID = UUID.randomUUID();
+}
     public void setmMessage(String mMessage) {
         this.mMessage = mMessage;
     }
@@ -154,6 +206,7 @@ class connectionThread extends Thread
     String recievedMessage;
     String lastSentMessage;
     String lastRecievedMessage;
+    static String TheMessage;
     Boolean socketStatus;
     Socket s;
 
@@ -197,6 +250,8 @@ class connectionThread extends Thread
                 }
 
                 Log.d("Message Recieved:", recievedMessage);
+                TheMessage = recievedMessage;
+                Message_Conversation.SendMsg(TheMessage);
                 lastRecievedMessage = this.recievedMessage;
             }
 
