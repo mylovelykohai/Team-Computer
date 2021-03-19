@@ -22,6 +22,7 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.net.SocketException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -185,7 +186,16 @@ class connectionThread extends Thread
 
             while (true)
             {
-                this.recievedMessage = recvReader.readLine();
+                try
+                {
+                    this.recievedMessage = recvReader.readLine();
+                }
+                catch(SocketException e)
+                {
+                    Log.d("e","SocketException, exiting recv loop");
+                    break;
+                }
+
                 Log.d("Message Recieved:", recievedMessage);
                 lastRecievedMessage = this.recievedMessage;
             }
@@ -201,6 +211,8 @@ class connectionThread extends Thread
         try
         {
             this.s.close();
+            this.recievedMessage = "";
+            messageObject.updateMessage("");
         }
         catch(IOException e)
         {
