@@ -207,7 +207,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/Contact_8_img" />
 
             <TextView
-                android:id="@+id/contact_8_name"
+                android:id="@+id/Contact_10_name"
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
@@ -481,7 +481,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/contact_9_Prevmgs"
+                android:id="@+id/Contact_10_Prevmgs"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="2dp"
@@ -489,7 +489,7 @@
                 android:text="button_contains_previous_message"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/contact_8_name"
+                app:layout_constraintStart_toEndOf="@+id/Contact_10_name"
                 app:layout_constraintTop_toBottomOf="@+id/C9Emotion" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
