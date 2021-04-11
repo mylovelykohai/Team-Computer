@@ -11,17 +11,9 @@ import static android.os.Build.ID;
 
 public class UsersBase {
     private List<User> mUsers;
-
     private SQLiteDatabase mDatabase;
     private UsersBase(){
-
         mUsers = new ArrayList<>();
-       // for(int i = 0; i<100; i++){
-        //    User user = new User();
-       //     user.setmEmotion("Emotion #"+i);
-       //     user.setmMessage("Messages #"+i);
-        //    mUsers.add(user);
-        //}
     }
     public List<User> getUsers(){
         return mUsers;
