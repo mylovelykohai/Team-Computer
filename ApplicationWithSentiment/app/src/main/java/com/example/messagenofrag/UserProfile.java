@@ -20,7 +20,7 @@ public class UserProfile extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserProfile.this, MainActivity.class));
+                finish();
             }
         });
     }
