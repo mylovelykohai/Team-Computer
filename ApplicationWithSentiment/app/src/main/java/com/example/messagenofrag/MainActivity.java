@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
     }
     private void configureCreateProfile(){
         ImageView IV;
-      IV = (ImageView) findViewById(R.id.imageView);
-      IV.setOnClickListener(new View.OnClickListener(){
+        IV = (ImageView) findViewById(R.id.imageView);
+        IV.setOnClickListener(new View.OnClickListener(){
           @Override
           public void onClick(View view) {
               startActivity(new Intent(MainActivity.this, UserProfile.class));
