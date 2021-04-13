@@ -263,7 +263,6 @@ class connectionThread extends Thread
                     Log.d("e","SocketException, exiting recv loop");
                     break;
                 }
-
                 TheMessage = recievedMessage;
                 Message_Conversation.SendMsg(TheMessage);
                 lastRecievedMessage = this.recievedMessage;
