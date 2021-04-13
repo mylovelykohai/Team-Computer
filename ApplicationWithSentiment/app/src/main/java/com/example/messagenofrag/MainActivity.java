@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         configurePreviousMsg();
         configureCreateProfile();
+        Button theButton = findViewById(R.id.TheMoveButton);
+        theButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(MainActivity.this, CreateAccount.class));
+            }
+        });
     }
     private void configurePreviousMsg(){
         //The purpose of this is to populate the "Button Contains Previous Message" list with actual content
