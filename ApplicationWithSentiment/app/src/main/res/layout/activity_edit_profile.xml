@@ -54,46 +54,26 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/btn_Avg_Emotion"
+                android:id="@+id/Btn_Change_Username"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="My Average Emotion"
-                app:backgroundTint="#D81818" />
-
-            <Button
-                android:id="@+id/Btn_Edit_Profile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Edit Profile"
+                android:layout_height="match_parent"
+                android:text="Change Username"
                 app:backgroundTint="#972B2B" />
 
             <Button
-                android:id="@+id/btn_Block_List"
+                android:id="@+id/Btn_Change_Picture"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="View Block List"
-                app:backgroundTint="#000000" />
+                android:layout_height="match_parent"
+                android:text="Change Picture"
+                app:backgroundTint="#972B2B" />
 
             <Button
-                android:id="@+id/btn_Delete_Account"
+                android:id="@+id/Btn_Save"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Delete Account"
-                app:backgroundTint="#000000" />
+                android:layout_height="match_parent"
+                android:text="Save Changes"
+                app:backgroundTint="#972B2B" />
 
-            <Button
-                android:id="@+id/btn_Report_Bug"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Report a bug!"
-                app:backgroundTint="#216860" />
-
-            <Button
-                android:id="@+id/btn_Help"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Help"
-                app:backgroundTint="#32A195" />
         </LinearLayout>
     </ScrollView>
 

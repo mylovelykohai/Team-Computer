@@ -35,7 +35,7 @@ public class Message_Conversation extends AppCompatActivity {
     private List<User> mUsers;
     private UsersAdapter mUsersAdapter;
     private int mPos;
-    connectionThread connection = new connectionThread("androidAPP","52.142.184.189",1200);
+    connectionThread connection = new connectionThread("androidAPP","51.140.241.128",1200);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
