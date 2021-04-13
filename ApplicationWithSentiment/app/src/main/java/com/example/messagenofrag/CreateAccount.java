@@ -17,8 +17,8 @@ public class CreateAccount extends AppCompatActivity {
         setSubmit();
     }
     public void setBackButton(){
-        Button button = findViewById(R.id.btn_Back_From_Profile);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button THEBUTTON = findViewById(R.id.btnCreateAccBck);
+        THEBUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
