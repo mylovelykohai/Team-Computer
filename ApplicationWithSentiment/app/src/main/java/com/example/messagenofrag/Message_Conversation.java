@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -173,7 +174,16 @@ public class Message_Conversation extends AppCompatActivity {
                 connection.sendMessage(message);
                 mEdit.setText("", TextView.BufferType.EDITABLE);
                 Log.d("EMOTION", emotion);
-            }
+                    Handler hanlder = new Handler();
+                    hanlder.postDelayed(new Runnable(){
+
+                        @Override
+                        public void run() {
+                            startActivity(getIntent());
+                        }
+                    },25);
+                }
+
         });
     }
     public static void NewMessage(String Message){
@@ -263,7 +273,6 @@ class connectionThread extends Thread
                     Log.d("e","SocketException, exiting recv loop");
                     break;
                 }
-
                 TheMessage = recievedMessage;
                 Message_Conversation.SendMsg(TheMessage);
                 lastRecievedMessage = this.recievedMessage;

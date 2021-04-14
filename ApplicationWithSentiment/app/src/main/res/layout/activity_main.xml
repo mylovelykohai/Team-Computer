@@ -182,7 +182,7 @@
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="Everyone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_1_img" />
 
@@ -376,12 +376,13 @@
                 android:id="@+id/C6Emotion"
                 android:layout_width="50dp"
                 android:layout_height="42dp"
-                android:layout_marginStart="1dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
                 android:layout_marginTop="25dp"
                 android:text="emotion"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_2_Prevmgs"
+                app:layout_constraintStart_toEndOf="@+id/Contact_6_Prevmgs"
                 app:layout_constraintTop_toBottomOf="@+id/C5Emotion" />
 
             <Button
