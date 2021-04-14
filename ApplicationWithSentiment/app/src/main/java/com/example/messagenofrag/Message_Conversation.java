@@ -2,11 +2,17 @@ package com.example.messagenofrag;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -22,6 +28,7 @@ import org.w3c.dom.Text;
 import com.chaquo.python.android.AndroidPlatform;
 
 import com.chaquo.python.Python;
+import com.example.ContextGetter;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -44,6 +51,11 @@ public class Message_Conversation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("New Message","New Message", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message__conversation);
         mUsers_RecyclerView = findViewById(R.id.users_recyclerview);
@@ -61,9 +73,17 @@ public class Message_Conversation extends AppCompatActivity {
     public static void SendMsg(String recievedMessage){
         User user = new User();
         user.setmMessage(recievedMessage);
+        Context TheContext = ContextGetter.getAppContext();
         Log.d("Message Added:", recievedMessage);
         user.setmEmotion(emotion);
         UsersBase.get().newMessage(user);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(TheContext, "New message");
+        builder.setContentTitle("New message recieved!");
+        builder.setContentText(recievedMessage);
+        builder.setSmallIcon(R.drawable.ic_launcher_background);
+        builder.setAutoCancel(true);
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(TheContext);
+        managerCompat.notify(1,builder.build());
     }
     class UsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
         private List<User> mUsers;
