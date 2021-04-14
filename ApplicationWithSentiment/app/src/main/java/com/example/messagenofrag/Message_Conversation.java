@@ -39,7 +39,7 @@ public class Message_Conversation extends AppCompatActivity {
     private UsersAdapter mUsersAdapter;
     private int mPos;
     public static String emotion;
-    connectionThread connection = new connectionThread("Josh","51.140.241.128",1200);
+    connectionThread connection = new connectionThread("User","51.140.241.128",1200);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
