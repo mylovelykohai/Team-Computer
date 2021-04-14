@@ -6,34 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="315dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="4dp"
-        android:text="Default_text_my_status"
+        android:id="@+id/textView20"
+        android:layout_width="413dp"
+        android:layout_height="163dp"
+        android:background="#00ADAB"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="43dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
+        android:id="@+id/imageView13"
+        android:layout_width="89dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="4dp"
         android:contentDescription="todo"
+        android:foreground="@drawable/ic_launcher_foreground"
         android:src="@android:drawable/checkbox_off_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/TheMoveButton"
+        android:layout_width="117dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Create An account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="362dp"
-        android:layout_height="527dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
+        android:id="@+id/ScrollView"
+        android:layout_width="372dp"
+        android:layout_height="521dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
 
@@ -42,11 +62,100 @@
             android:layout_width="350dp"
             android:layout_height="1250dp">
 
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/Contact_1_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_1_Prevmgs" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_2_img" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/Contact_3_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_3_Img" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/Contact_4_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_4_img" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/Contact_5_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_5_img" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/Contact_6_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_6_img" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/Contact_7_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_7_img" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/Contact_8_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_8_img" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/Contact_9_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_9_img" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="352dp"
+                android:layout_height="53dp"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <ImageButton
                 android:id="@+id/Contact_3_Img"
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="todo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +167,7 @@
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="TODO"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,6 +179,7 @@
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="TODO"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,26 +187,19 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/C5Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_5_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C4Emotion" />
-
-            <Button
                 android:id="@+id/Contact_5_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
                 android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:background="#ffffff"
+                android:text="can't keep doing this man"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
+                app:backgroundTint="#FFFFFF"
                 app:layout_constraintStart_toEndOf="@+id/Contact_5_name"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_4_Prevmgs" />
 
@@ -104,6 +208,7 @@
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="TODO"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,6 +220,7 @@
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="todo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -126,6 +232,7 @@
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="todo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -137,6 +244,7 @@
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="todo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -148,6 +256,7 @@
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="todo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -157,12 +266,12 @@
             <ImageButton
                 android:id="@+id/Contact_1_img"
                 android:layout_width="94dp"
-                android:layout_height="27dp"
+                android:layout_height="26dp"
                 android:layout_marginStart="1dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginLeft="1dp"
                 android:contentDescription="todo"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_1_Prevmgs"
                 tools:src="@tools:sample/avatars" />
 
             <ImageButton
@@ -170,6 +279,7 @@
                 android:layout_width="94dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="17dp"
                 android:contentDescription="todo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -181,6 +291,7 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 android:text="Everyone"
                 app:layout_constraintStart_toStartOf="parent"
@@ -191,8 +302,9 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="268dp"
-                android:text="contactname"
+                android:text="n/a"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_5_img" />
 
@@ -201,8 +313,9 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="n/a"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_8_img" />
 
@@ -211,8 +324,9 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="n/a"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contact_9_img2" />
 
@@ -221,8 +335,9 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="n/a"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_7_img" />
 
@@ -231,8 +346,9 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="Kieran"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_6_img" />
 
@@ -241,8 +357,9 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="Harry"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_5_img" />
 
@@ -251,8 +368,9 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="TeamComputer"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_4_img" />
 
@@ -261,8 +379,9 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="Declan"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_3_Img" />
 
@@ -271,254 +390,313 @@
                 android:layout_width="95dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
-                android:text="contactname"
+                android:text="Jay"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_2_img" />
 
             <Button
-                android:id="@+id/C9Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_5_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C8Emotion" />
-
-            <Button
                 android:id="@+id/Contact_9_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:background="#FFFFFF"
+                android:text="default angry face"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_5_name"
-                app:layout_constraintTop_toBottomOf="@+id/Contact_8_Prevmgs" />
+                app:backgroundTint="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                app:layout_constraintStart_toEndOf="@+id/Contact_9_img"
+                app:layout_constraintTop_toTopOf="@+id/textView18" />
 
             <Button
                 android:id="@+id/Contact_8_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="2dp"
                 android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:layout_marginBottom="6dp"
+                android:background="#FFFFFF"
+                android:text="default sad face"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_4_name"
+                app:backgroundTint="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView17"
+                app:layout_constraintStart_toEndOf="@+id/Contact_8_img"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_7_Prevmgs" />
 
             <Button
-                android:id="@+id/C8Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_4_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C7Emotion" />
-
-            <Button
-                android:id="@+id/c8Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_4_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C9Emotion" />
-
-            <Button
-                android:id="@+id/C7Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_3_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C6Emotion" />
-
-            <Button
                 android:id="@+id/Contact_7_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="2dp"
                 android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:background="#FFFFFF"
+                android:text="default happy text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_3_name"
+                app:backgroundTint="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                app:layout_constraintStart_toEndOf="@+id/Contact_7_img"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_6_Prevmgs" />
 
             <Button
                 android:id="@+id/Contact_6_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="2dp"
                 android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:background="#FFFFFF"
+                android:text="Thank you!"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_2_img"
+                app:backgroundTint="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                app:layout_constraintStart_toEndOf="@+id/Contact_6_img"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_5_Prevmgs" />
 
             <Button
-                android:id="@+id/C6Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_6_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C5Emotion" />
-
-            <Button
                 android:id="@+id/Contact_4_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
                 android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:background="#FFFFFF"
+                android:text="THIS IS REDICULOUS!"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
+                app:backgroundTint="#FFFFFF"
                 app:layout_constraintStart_toEndOf="@+id/Contact_4_name"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_3_Prevmgs" />
 
             <Button
-                android:id="@+id/C4Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_4_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C3Emotion" />
-
-            <Button
-                android:id="@+id/C3Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_3_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C2Emotion" />
-
-            <Button
                 android:id="@+id/Contact_3_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
                 android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:background="#FFFFFF"
+                android:text="I don't think it works"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
+                app:backgroundTint="#FFFFFF"
                 app:layout_constraintStart_toEndOf="@+id/Contact_3_name"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_2_Prevmgs" />
 
             <Button
                 android:id="@+id/Contact_2_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
                 android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:background="#FFFFFF"
+                android:text="I'll be there at 5 I guess"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
+                app:backgroundTint="#FFFFFF"
+                app:iconTint="#000000"
                 app:layout_constraintStart_toEndOf="@+id/Contact_2_img"
                 app:layout_constraintTop_toBottomOf="@+id/Contact_1_Prevmgs" />
 
             <Button
-                android:id="@+id/C2Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="25dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_2_Prevmgs"
-                app:layout_constraintTop_toBottomOf="@+id/C1Emotion" />
-
-            <Button
-                android:id="@+id/C1Emotion"
-                android:layout_width="50dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="5dp"
-                android:text="emotion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/Contact_1_Prevmgs"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
                 android:id="@+id/Contact_1_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
                 android:layout_marginTop="5dp"
-                android:text="button_contains_previous_message"
+                android:text="This is the main chat now?"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
+                app:backgroundTint="#FFFFFF"
+                app:iconTint="#FFFFFF"
                 app:layout_constraintStart_toEndOf="@+id/Contact_1_img"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/Contact_10_Prevmgs"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="198dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="2dp"
-                android:layout_marginTop="19dp"
-                android:text="button_contains_previous_message"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="1dp"
+                android:background="#ffffff"
+                android:text="default happy text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:textSize="8sp"
+                app:backgroundTint="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/Contact_10_name"
-                app:layout_constraintTop_toBottomOf="@+id/C9Emotion" />
+                app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="@+id/textView6"
+                app:layout_constraintStart_toEndOf="@+id/Contact_1_Prevmgs"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/happyemoji" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="@+id/textView8"
+                app:layout_constraintStart_toEndOf="@+id/Contact_2_Prevmgs"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                tools:srcCompat="@drawable/angryemoji" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Contact_3_Prevmgs"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                tools:srcCompat="@drawable/sademoji" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Contact_4_Prevmgs"
+                app:layout_constraintTop_toTopOf="@+id/textView13"
+                tools:srcCompat="@drawable/angryemoji" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Contact_5_Prevmgs"
+                app:layout_constraintTop_toTopOf="@+id/textView14"
+                tools:srcCompat="@drawable/sademoji" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                app:layout_constraintEnd_toEndOf="@+id/textView15"
+                app:layout_constraintStart_toEndOf="@+id/Contact_6_Prevmgs"
+                app:layout_constraintTop_toTopOf="@+id/textView15"
+
+                tools:srcCompat="@drawable/happyemoji" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Contact_7_Prevmgs"
+                app:layout_constraintTop_toTopOf="@+id/textView16"
+                app:layout_constraintVertical_bias="0.4"
+
+                tools:srcCompat="@drawable/happyemoji" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Contact_9_Prevmgs"
+
+                tools:srcCompat="@drawable/angryemoji" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView17"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Contact_8_Prevmgs"
+                app:layout_constraintTop_toTopOf="@+id/textView17"
+
+                tools:srcCompat="@drawable/sademoji" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView19"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView19"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/happyemoji" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
+
+    <Button
+        android:id="@+id/reportaBug2"
+        android:layout_width="102dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Report a bug"
+        app:layout_constraintStart_toEndOf="@+id/imageView13"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="150dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Contacts"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/TheMoveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="14dp"
-        android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="367dp"
+        android:layout_height="59dp"
+        android:text="My status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
