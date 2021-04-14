@@ -158,7 +158,7 @@ public class Message_Conversation extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(Message_Conversation.this, MainActivity.class));
             }
         });
     }
