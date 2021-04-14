@@ -68,11 +68,12 @@
                 app:backgroundTint="#972B2B" />
 
             <Button
-                android:id="@+id/Btn_Save"
+                android:id="@+id/Btn_Change_Status"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Save Changes"
+                android:text="Change Status"
                 app:backgroundTint="#972B2B" />
+
 
         </LinearLayout>
     </ScrollView>

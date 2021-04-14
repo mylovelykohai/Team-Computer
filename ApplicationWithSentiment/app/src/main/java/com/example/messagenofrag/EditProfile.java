@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -17,6 +18,9 @@ public class EditProfile extends AppCompatActivity {
 
     ImageView UserIcon;
     Button Btn_Change_Picture;
+    TextView txtstat;
+    Button btnstat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,18 @@ public class EditProfile extends AppCompatActivity {
 
         ImageView img = findViewById(R.id.UserIcon);
         Button btn = findViewById(R.id.Btn_Change_Picture);
+        txtstat=(TextView) findViewById(R.id.textView22);
+        btnstat=(Button) findViewById(R.id.Btn_Change_Status);
+
+        btnstat.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                txtstat.setText("");
+            }
+                                   }
+
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,12 +51,12 @@ public class EditProfile extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Pick an image"), GALLERY_REQUEST_CODE);
 
-                    //ConfigureChangePic();
+                //ConfigureChangePic();
 
-                    //UserIcon = findViewById(R.id.UserIcon);
-                    //Btn_Change_Picture = findViewById(Btn_Change_Picture);
+                //UserIcon = findViewById(R.id.UserIcon);
+                //Btn_Change_Picture = findViewById(Btn_Change_Picture);
 
-                }
+            }};
 
 
             protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
@@ -51,7 +67,7 @@ public class EditProfile extends AppCompatActivity {
                 }
             }
             });
-    }
+
 
 
     private void ConfigureBackBtn(){
@@ -63,6 +79,8 @@ public class EditProfile extends AppCompatActivity {
             }
         });
     }
+
+
 
     //private void ConfigureChangePic(){
     //    ImageView img = findViewById(R.id.UserIcon);
@@ -82,3 +100,4 @@ public class EditProfile extends AppCompatActivity {
 
 
     }
+}
