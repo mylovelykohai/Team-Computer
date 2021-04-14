@@ -19,12 +19,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         configurePreviousMsg();
+        reportBug();
         configureCreateProfile();
         Button theButton = findViewById(R.id.TheMoveButton);
         theButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 startActivity(new Intent(MainActivity.this, CreateAccount.class));
+            }
+        });
+    }
+
+    private void reportBug(){
+        Button button = findViewById(R.id.reportaBug2);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("plain/text");
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "joshhunter6363@gmail.com" });
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Bug Report");
+                intent.putExtra(Intent.EXTRA_TEXT, "");
+                startActivity(Intent.createChooser(intent, ""));
             }
         });
     }
