@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,9 +21,15 @@ public class EditProfile extends AppCompatActivity {
 
     ImageView UserIcon;
     Button Btn_Change_Picture;
-    TextView txtstat;
-    Button btnstat;
 
+    TextView txtstat;
+    TextView username;
+
+    EditText nameEditText;
+    EditText statEditText;
+
+    Button updateName;
+    Button updateStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +39,30 @@ public class EditProfile extends AppCompatActivity {
 
         ImageView img = findViewById(R.id.UserIcon);
         Button btn = findViewById(R.id.Btn_Change_Picture);
-        txtstat=(TextView) findViewById(R.id.textView22);
-        btnstat=(Button) findViewById(R.id.Btn_Change_Status);
 
-        btnstat.setOnClickListener(new View.OnClickListener(){
+        EditText nameEditText = findViewById(R.id.editTextUsername);
+        EditText statEditText = findViewById(R.id.editTextStatus);
+
+        Button updateName = findViewById(R.id.Btn_Change_Username);
+        Button updateStatus = findViewById(R.id.Btn_Change_Status);
+
+        TextView textName = findViewById(R.id.UserName2);
+        TextView textStatus = findViewById(R.id.textView22);
+
+        updateName.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                txtstat.setText("");
+            public void onClick(View v) {
+                String name = nameEditText.getText().toString();
+                textName.setText(name);
             }
-                                   }
+        });
 
+        updateStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -55,30 +78,20 @@ public class EditProfile extends AppCompatActivity {
 
                 //UserIcon = findViewById(R.id.UserIcon);
                 //Btn_Change_Picture = findViewById(Btn_Change_Picture);
-
-            }};
-
-
-            protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
-                if(requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
-                    Uri imageData = data.getData();
-
-                    UserIcon.setImageURI(imageData);
-                }
-            }
-            });
-
-
-
-    private void ConfigureBackBtn(){
-        Button btn = findViewById(R.id.btn_Back_From_Edit);
-        btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                finish();
             }
         });
     }
+
+
+        private void ConfigureBackBtn(){
+            Button btn = findViewById(R.id.btn_Back_From_Edit);
+            btn.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+        }
 
 
 
@@ -97,7 +110,14 @@ public class EditProfile extends AppCompatActivity {
     //    });
     //}
 
+        //protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
+        //if(requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
+        //Uri imageData = data.getData();
+
+        //UserIcon.setImageURI(imageData);
+        //}
+        //}
+        //)
 
 
     }
-}

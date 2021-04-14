@@ -21,8 +21,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/UserName"
+    <EditText
+        android:id="@+id/UserName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
@@ -46,18 +46,41 @@
         android:layout_marginRight="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserName">
+        app:layout_constraintTop_toBottomOf="@+id/UserName2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <EditText
+                android:id="@+id/editTextUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Enter Username" />
+
             <Button
                 android:id="@+id/Btn_Change_Username"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Change Username"
+                android:text="Update Username"
+                app:backgroundTint="#972B2B" />
+
+            <EditText
+                android:id="@+id/editTextStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Enter status" />
+
+            <Button
+                android:id="@+id/Btn_Change_Status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Update Status"
                 app:backgroundTint="#972B2B" />
 
             <Button
@@ -65,13 +88,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Change Picture"
-                app:backgroundTint="#972B2B" />
-
-            <Button
-                android:id="@+id/Btn_Change_Status"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Change Status"
                 app:backgroundTint="#972B2B" />
 
 
