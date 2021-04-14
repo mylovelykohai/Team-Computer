@@ -17,6 +17,12 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
         ConfigureBackBtn();
         ConfigureProfileBtn();
+
+        //ImageView UserIcon = (ImageView) findViewById(R.id.UserIcon);
+        //UserIcon.setImageResource(R.drawable.fpscan);
+
+        //UserIcon.setImageResource(R.drawable.monkey);
+
     }
 
     private void ConfigureBackBtn() {

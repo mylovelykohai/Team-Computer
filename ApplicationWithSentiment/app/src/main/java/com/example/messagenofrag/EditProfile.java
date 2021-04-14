@@ -25,15 +25,15 @@ public class EditProfile extends AppCompatActivity {
         ConfigureBackBtn();
 
         ImageView img = findViewById(R.id.UserIcon);
-            Button btn = findViewById(R.id.Btn_Change_Picture);
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //open gallery
-                    Intent intent = new Intent();
-                    intent.setType("image/^");
-                    intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(Intent.createChooser(intent, "Pick an image"), GALLERY_REQUEST_CODE);
+        Button btn = findViewById(R.id.Btn_Change_Picture);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //open gallery
+                Intent intent = new Intent();
+                intent.setType("image/^");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Pick an image"), GALLERY_REQUEST_CODE);
 
                     //ConfigureChangePic();
 
@@ -41,6 +41,15 @@ public class EditProfile extends AppCompatActivity {
                     //Btn_Change_Picture = findViewById(Btn_Change_Picture);
 
                 }
+
+
+            protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
+                if(requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
+                    Uri imageData = data.getData();
+
+                    UserIcon.setImageURI(imageData);
+                }
+            }
             });
     }
 
@@ -70,13 +79,6 @@ public class EditProfile extends AppCompatActivity {
     //    });
     //}
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
-        if(requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
-            Uri imageData = data.getData();
 
-            UserIcon.setImageURI(imageData);
-            }
-        }
 
     }
