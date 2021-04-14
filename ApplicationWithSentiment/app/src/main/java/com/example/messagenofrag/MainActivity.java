@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
             btnContactName = getResources().getIdentifier("Contact_"+i+"_name","id",getPackageName());
             theButton = (Button) findViewById(btnNo);
             TV2 = (TextView) findViewById(btnContactName);
-            theButton.setText("Message Currently un-coded!"); //FIND A WAY TO GRAB THE PREVIOUS MESSAGE OF CONVERSATION I HERE
+            //theButton.setText("Message Currently un-coded!"); //FIND A WAY TO GRAB THE PREVIOUS MESSAGE OF CONVERSATION I HERE
             //@CONNECTION TEAM
-            TV2.setText("Name un-coded!"); //Same deal, grab the name of the contact
+            //TV2.setText("Name un-coded!"); //Same deal, grab the name of the contact
             //@Connection team
             theButton.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void configureCreateProfile(){
         ImageView IV;
-        IV = (ImageView) findViewById(R.id.imageView);
+        IV = (ImageView) findViewById(R.id.imageView13);
         IV.setOnClickListener(new View.OnClickListener(){
           @Override
           public void onClick(View view) {
