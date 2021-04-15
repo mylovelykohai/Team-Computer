@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,12 @@
         android:id="@+id/theEditText"
         android:layout_width="284dp"
         android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="220dp"
         android:autofillHints='Type a genre of food, example, "Chinese food."'
         android:ems="10"
         android:hint="Enter Message"
@@ -17,10 +23,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/users_recyclerview" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/users_recyclerview"
-        android:layout_width="408dp"
-        android:layout_height="337dp"
+        android:layout_width="match_parent"
+        android:layout_height="553dp"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +36,13 @@
         android:id="@+id/btn_send"
         android:layout_width="127dp"
         android:layout_height="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@+id/theEditText"
+        android:layout_toRightOf="@+id/theEditText"
         android:text="Send message"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="10sp"
@@ -44,4 +58,28 @@
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#00ADAB" />
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="208dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginLeft="103dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:gravity="center"
+        android:text="Contact"
+        android:textSize="24sp" />
+</RelativeLayout>
