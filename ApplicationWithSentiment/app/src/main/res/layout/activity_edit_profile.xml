@@ -88,4 +88,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="414dp"
+        android:layout_height="63dp"
+        android:background="#00ADAB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:text="Edit profile"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".CreateAccount">
 
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="413dp"
+        android:layout_height="62dp"
+        android:background="#00ADAB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/contact2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginRight="120dp"
+        android:text="Create account"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="wrap_content"
@@ -72,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
