@@ -58,6 +58,8 @@ public class Message_Conversation extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message__conversation);
+        TextView contact = findViewById(R.id.contact);
+        contact.setText("Everyone");
         mUsers_RecyclerView = findViewById(R.id.users_recyclerview);
         mUsers_RecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mUsers = UsersBase.get().getUsers();

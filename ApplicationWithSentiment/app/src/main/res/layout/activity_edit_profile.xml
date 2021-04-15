@@ -8,15 +8,15 @@
 
     <ImageView
         android:id="@+id/UserIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="183dp"
+        android:layout_height="182dp"
         android:layout_marginStart="145dp"
         android:layout_marginLeft="145dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="108dp"
         android:layout_marginEnd="145dp"
         android:layout_marginRight="145dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="180dp"
         android:layout_marginRight="180dp"
         android:text="User Name"
@@ -37,11 +37,11 @@
         app:layout_constraintTop_toBottomOf="@+id/UserIcon" />
 
     <ScrollView
-        android:layout_width="355dp"
-        android:layout_height="503dp"
+        android:layout_width="357dp"
+        android:layout_height="258dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/Btn_Change_Username"
