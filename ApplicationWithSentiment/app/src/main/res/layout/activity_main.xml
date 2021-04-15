@@ -19,6 +19,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="379dp"
+        android:layout_height="536dp"
+        android:background="#00ADAB"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ScrollView" />
+
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="89dp"
@@ -698,5 +710,7 @@
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
