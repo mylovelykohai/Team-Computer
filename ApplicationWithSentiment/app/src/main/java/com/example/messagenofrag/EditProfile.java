@@ -30,7 +30,10 @@ public class EditProfile extends AppCompatActivity {
 
     Button updateName;
     Button updateStatus;
+
     static String UN = "NOTHING YET";
+    static String ST = "NOTHING YET";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,10 @@ public class EditProfile extends AppCompatActivity {
         updateStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String status = statEditText.getText().toString();
+                textStatus.setText(status);
+                ST = status;
+                MainActivity.setStatus(ST);
             }
         });
 
@@ -96,6 +102,9 @@ public class EditProfile extends AppCompatActivity {
         }
         public static String getUN(){
             return UN;
+        }
+        public static String getST(){
+            return ST;
         }
 
 

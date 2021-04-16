@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    String UN;
+    String ST;
+    static TextView TV2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         startActivity(getIntent());
@@ -19,13 +20,17 @@ public class MainActivity extends AppCompatActivity {
         configurePreviousMsg();
         reportBug();
         configureCreateProfile();
-        UN = EditProfile.getUN();
-        if(UN.equals("NOTHING YET")){
+        ST = EditProfile.getST();
+        TV2 = findViewById(R.id.textView22);
+
+
+        if(ST.equals("NOTHING YET")){
 
         }
         else{
-
+            setStatus(ST);
         }
+
         Button theButton = findViewById(R.id.TheMoveButton);
         theButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -48,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(intent, ""));
             }
         });
+    }
+
+    public static void setStatus(String ST) {
+        TV2.setText(ST);
     }
 
     private void configurePreviousMsg(){
