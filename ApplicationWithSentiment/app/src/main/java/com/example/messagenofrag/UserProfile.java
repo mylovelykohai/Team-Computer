@@ -7,17 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class UserProfile extends AppCompatActivity {
-
-
+    static TextView TV;
+String UN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         ConfigureBackBtn();
         ConfigureProfileBtn();
+        UN = EditProfile.getUN();
+        TV = findViewById(R.id.UserName2);
+        if(UN.equals("NOTHING YET")){
 
+        }
+        else{
+            setName(UN);
+        }
         //ImageView UserIcon = (ImageView) findViewById(R.id.UserIcon);
         //UserIcon.setImageResource(R.drawable.fpscan);
 
@@ -30,11 +38,13 @@ public class UserProfile extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(UserProfile.this, MainActivity.class));
             }
         });
     }
-
+    public static void setName(String UN){
+        TV.setText(UN);
+    }
     private void ConfigureProfileBtn() {
         Button theButton = findViewById(R.id.Btn_Edit_Profile);
         theButton.setOnClickListener(new View.OnClickListener() {

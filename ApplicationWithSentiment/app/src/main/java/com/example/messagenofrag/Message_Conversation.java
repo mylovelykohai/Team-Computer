@@ -196,14 +196,6 @@ public class Message_Conversation extends AppCompatActivity {
                 connection.sendMessage(message);
                 mEdit.setText("", TextView.BufferType.EDITABLE);
                 Log.d("EMOTION", emotion);
-                    Handler hanlder = new Handler();
-                    hanlder.postDelayed(new Runnable(){
-
-                        @Override
-                        public void run() {
-                            startActivity(getIntent());
-                        }
-                    },25);
                 }
 
         });

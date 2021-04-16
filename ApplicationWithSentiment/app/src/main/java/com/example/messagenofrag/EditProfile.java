@@ -30,7 +30,7 @@ public class EditProfile extends AppCompatActivity {
 
     Button updateName;
     Button updateStatus;
-
+    static String UN = "NOTHING YET";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,8 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View v) {
                 String name = nameEditText.getText().toString();
                 textName.setText(name);
+                UN = name;
+                UserProfile.setName(UN);
             }
         });
 
@@ -88,11 +90,13 @@ public class EditProfile extends AppCompatActivity {
             btn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-                    finish();
+                    startActivity(new Intent(EditProfile.this, UserProfile.class));
                 }
             });
         }
-
+        public static String getUN(){
+            return UN;
+        }
 
 
     //private void ConfigureChangePic(){
