@@ -22,15 +22,11 @@ public class MainActivity extends AppCompatActivity {
         configureCreateProfile();
         ST = EditProfile.getST();
         TV2 = findViewById(R.id.textView22);
-
-
         if(ST.equals("NOTHING YET")){
-
         }
         else{
             setStatus(ST);
         }
-
         Button theButton = findViewById(R.id.TheMoveButton);
         theButton.setOnClickListener(new View.OnClickListener(){
             @Override

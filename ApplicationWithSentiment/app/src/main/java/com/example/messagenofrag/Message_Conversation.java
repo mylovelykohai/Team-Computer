@@ -43,14 +43,18 @@ import java.util.UUID;
 
 public class Message_Conversation extends AppCompatActivity {
     private RecyclerView mUsers_RecyclerView;
+    private String UN = EditProfile.getUN();
     private List<User> mUsers;
     private UsersAdapter mUsersAdapter;
     private int mPos;
     public static String emotion;
-    connectionThread connection = new connectionThread("User","51.140.241.128",1200);
+    connectionThread connection = new connectionThread(UN,"51.140.241.128",1200);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(UN.equals("NOTHING YET")){
+            UN="Anonymous";
+        }
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
             NotificationChannel channel = new NotificationChannel("New Message","New Message", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager manager = getSystemService(NotificationManager.class);
