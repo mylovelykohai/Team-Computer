@@ -53,6 +53,7 @@
         android:layout_marginRight="28dp"
         android:text="Create An account"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ReportaBug2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
@@ -569,6 +570,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView6"
                 app:layout_constraintStart_toEndOf="@+id/Contact_1_Prevmgs"
                 app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/happyemoji"
                 tools:srcCompat="@drawable/happyemoji" />
 
             <ImageView
@@ -582,6 +584,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView8"
                 app:layout_constraintStart_toEndOf="@+id/Contact_2_Prevmgs"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                app:srcCompat="@drawable/angryemoji"
                 tools:srcCompat="@drawable/angryemoji" />
 
             <ImageView
@@ -593,6 +596,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/Contact_3_Prevmgs"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                app:srcCompat="@drawable/sademoji"
                 tools:srcCompat="@drawable/sademoji" />
 
             <ImageView
@@ -603,6 +607,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/Contact_4_Prevmgs"
                 app:layout_constraintTop_toTopOf="@+id/textView13"
+                app:srcCompat="@drawable/angryemoji"
                 tools:srcCompat="@drawable/angryemoji" />
 
             <ImageView
@@ -613,6 +618,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/Contact_5_Prevmgs"
                 app:layout_constraintTop_toTopOf="@+id/textView14"
+                app:srcCompat="@drawable/sademoji"
                 tools:srcCompat="@drawable/sademoji" />
 
             <ImageView
@@ -624,6 +630,7 @@
                 app:layout_constraintStart_toEndOf="@+id/Contact_6_Prevmgs"
                 app:layout_constraintTop_toTopOf="@+id/textView15"
 
+                app:srcCompat="@drawable/happyemoji"
                 tools:srcCompat="@drawable/happyemoji" />
 
             <ImageView
@@ -638,6 +645,7 @@
                 app:layout_constraintTop_toTopOf="@+id/textView16"
                 app:layout_constraintVertical_bias="0.4"
 
+                app:srcCompat="@drawable/happyemoji"
                 tools:srcCompat="@drawable/happyemoji" />
 
             <ImageView
@@ -648,6 +656,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/Contact_9_Prevmgs"
 
+                app:srcCompat="@drawable/angryemoji"
                 tools:srcCompat="@drawable/angryemoji" />
 
             <ImageView
@@ -659,6 +668,7 @@
                 app:layout_constraintStart_toEndOf="@+id/Contact_8_Prevmgs"
                 app:layout_constraintTop_toTopOf="@+id/textView17"
 
+                app:srcCompat="@drawable/sademoji"
                 tools:srcCompat="@drawable/sademoji" />
 
             <ImageView
@@ -669,14 +679,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView19"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/happyemoji" />
+                app:srcCompat="@drawable/happyemoji"
+                tools:srcCompat="@drawable/happyemoji" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
     <Button
-        android:id="@+id/reportaBug2"
+        android:id="@+id/ReportaBug2"
         android:layout_width="109dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"

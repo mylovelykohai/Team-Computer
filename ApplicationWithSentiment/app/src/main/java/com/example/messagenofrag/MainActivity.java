@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -31,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void reportBug(){
-        Button button = findViewById(R.id.reportaBug2);
-        button.setOnClickListener(new View.OnClickListener(){
+        Button TheButton = findViewById(R.id.ReportaBug2);
+        TheButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(Intent.ACTION_SEND);
