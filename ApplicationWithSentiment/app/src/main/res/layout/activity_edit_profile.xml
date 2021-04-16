@@ -8,18 +8,17 @@
 
     <ImageView
         android:id="@+id/UserIcon"
-        android:layout_width="183dp"
-        android:layout_height="182dp"
+        android:layout_width="155dp"
+        android:layout_height="135dp"
         android:layout_marginStart="145dp"
         android:layout_marginLeft="145dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="145dp"
         android:layout_marginRight="145dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/anon_user" />
 
     <EditText
         android:id="@+id/UserName2"

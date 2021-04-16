@@ -18,6 +18,7 @@ String UN;
         setContentView(R.layout.activity_user_profile);
         ConfigureBackBtn();
         ConfigureProfileBtn();
+        reportBug();
         UN = EditProfile.getUN();
         TV = findViewById(R.id.UserName2);
         if(UN.equals("NOTHING YET")){
@@ -42,6 +43,22 @@ String UN;
             }
         });
     }
+
+    private void reportBug(){
+        Button TheButton = findViewById(R.id.btn_Report_Bug);
+        TheButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("plain/text");
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "joshhunter6363@gmail.com" });
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Bug Report");
+                intent.putExtra(Intent.EXTRA_TEXT, "");
+                startActivity(Intent.createChooser(intent, ""));
+            }
+        });
+    }
+
     public static void setName(String UN){
         TV.setText(UN);
     }
