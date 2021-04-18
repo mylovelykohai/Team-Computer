@@ -48,7 +48,11 @@ public class Message_Conversation extends AppCompatActivity {
     private UsersAdapter mUsersAdapter;
     private int mPos;
     public static String emotion;
-    connectionThread connection = new connectionThread(UN,"51.140.241.128",1200);
+
+    public static int convID = 1; // Josh or someone implement a way to make this be per person on a list.
+
+    //connectionThread connection = new connectionThread(UN,"51.140.241.128",1200);
+    connectionThread connection = MainActivity.sendConnection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +76,10 @@ public class Message_Conversation extends AppCompatActivity {
         EditText mEdit = (EditText) findViewById((R.id.theEditText));
         configureBackBtn();
         configureSend(mEdit);
+        Log.d("sessionID",connection.sessionID);
 
 
-        connection.start();
+        //connection.start();
     }
     public static void SendMsg(String recievedMessage){
         User user = new User();
@@ -173,7 +178,7 @@ public class Message_Conversation extends AppCompatActivity {
     {
         super.onDetachedFromWindow();
         Log.d("onDestory","called");
-        connection.endConnection();
+        //connection.endConnection();
     }
 
 
@@ -190,14 +195,14 @@ public class Message_Conversation extends AppCompatActivity {
                 //mEdit.getText().toString() is the value held within the EditText box
                 //Find a way to make the onClick method (This one) send the contents of mEdit to the database.
                 String message = mEdit.getText().toString();
-                messageObject.updateMessage(message);
+                //messageObject.updateMessage(message);
 
                 Python python = Python.getInstance();
                 String input = messageObject.returnMessage();
                 Log.d("input:", input);
                 emotion = python.getModule("predict").callAttr("pred", input).toString();
 
-                connection.sendMessage(message);
+                connection.sendMessage(message, convID);
                 mEdit.setText("", TextView.BufferType.EDITABLE);
                 Log.d("EMOTION", emotion);
                 }
@@ -237,175 +242,4 @@ public User(){
     }
 
 
-}
-class connectionThread extends Thread
-{
-    int PORT;
-    String IPADDR;
-
-    String username;
-
-    String message;
-    String recievedMessage;
-    String lastSentMessage;
-    String lastRecievedMessage;
-    static String TheMessage;
-    Boolean socketStatus;
-    Socket s;
-
-    private messageObject messageClass;
-
-    connectionThread(String username, String IPADDR, int PORT)
-    {
-        this.username = username;
-        this.IPADDR = IPADDR;
-        this.PORT = PORT;
-        this.message = "";
-        this.recievedMessage = "";
-        this.lastSentMessage = "";
-        this.lastRecievedMessage = "";
-        this.messageClass = messageClass;
-    }
-
-    public void run()
-    {
-        try // look i just wanna check for IOException from socket but ofc buffered reader needs a try catch
-        // as well and OFC they dont work if they're not in the same scope, it is jus easier this way okay??
-        {
-
-            this.s = new Socket();
-            this.s.connect(new InetSocketAddress(IPADDR, PORT));
-            BufferedReader recvReader = new BufferedReader(new InputStreamReader(this.s.getInputStream()));
-
-            connectionSendThread sendThread = new connectionSendThread(this.s, username, messageClass);
-            sendThread.start();
-
-            while (true)
-            {
-                try
-                {
-                    this.recievedMessage = recvReader.readLine();
-                }
-                catch(SocketException e)
-                {
-                    Log.d("e","SocketException, exiting recv loop");
-                    break;
-                }
-                TheMessage = recievedMessage;
-                Message_Conversation.SendMsg(TheMessage);
-                lastRecievedMessage = this.recievedMessage;
-            }
-
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public void endConnection() {
-        try
-        {
-            this.s.close();
-            this.recievedMessage = "";
-            messageObject.updateMessage("");
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace(); // idc fuck off
-        }
-    }
-    public void sendMessage(String message)
-    {
-        this.message = message;
-    }
-
-    protected String encodeMessage(String... message)
-    {
-        try
-        {
-            String encodedString = String.join(" ", message);
-            encodedString = URLEncoder.encode(encodedString, "UTF-8");
-            return encodedString;
-        }
-        catch (UnsupportedEncodingException e)
-        {
-            return null;
-        }
-    }
-}
-
-
-class connectionSendThread extends Thread
-{
-    Socket s;
-    String username;
-    String message;
-    String lastSentMessage;
-    PrintWriter sendWriter;
-    messageObject messageClass;
-
-    connectionSendThread(Socket _Socket, String username, messageObject messageClass)
-    {
-        this.s = _Socket;
-        this.username = username;
-        this.message = message;
-        this.messageClass = messageClass;
-    }
-
-    public void run()
-    {
-        try
-        {
-            this.sendWriter = new PrintWriter(s.getOutputStream());
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-
-        this.sendWriter.write(encodeMessage(this.username));
-        this.sendWriter.flush();
-
-        while(true)
-        {
-            if (this.lastSentMessage != messageObject.returnMessage())
-            {
-                this.sendWriter.write(encodeMessage(messageObject.returnMessage()));
-                this.lastSentMessage = messageObject.returnMessage();
-                this.sendWriter.flush();
-            }
-        }
-    }
-    protected String encodeMessage(String... message)
-    {
-        try
-        {
-            String joinedString = String.join(" ", message);
-            String encoded = URLEncoder.encode(joinedString, "UTF-8");
-            encoded = encoded.replace('+', ' ');
-            return encoded;
-        }
-        catch (UnsupportedEncodingException e)
-        {
-            return null;
-        }
-    }
-
-}
-
-
-class messageObject
-{
-    public static volatile String message;
-
-    public static void updateMessage(String newMessage)
-    {
-        message = newMessage;
-    }
-
-    public static String returnMessage()
-    {
-        return message;
-    }
 }

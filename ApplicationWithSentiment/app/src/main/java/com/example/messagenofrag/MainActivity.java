@@ -2,6 +2,7 @@ package com.example.messagenofrag;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,9 +10,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import android.widget.Toast;
+
+import com.example.ContextGetter;
+
 public class MainActivity extends AppCompatActivity {
     String ST;
     static TextView TV2;
+    static MainActivity ma;
+    static Context context;
+
+
+    static connectionThread connection = new connectionThread("User","172.16.15.90",7777);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         startActivity(getIntent());
@@ -22,12 +33,18 @@ public class MainActivity extends AppCompatActivity {
         configureCreateProfile();
         ST = EditProfile.getST();
         TV2 = findViewById(R.id.textView22);
+
+        ma = MainActivity.this; // allow static reference
+        context = ContextGetter.getAppContext(); // context is stupid and everyone hates it
+
         if(ST.equals("NOTHING YET")){
         }
         else{
             setStatus(ST);
         }
         Button theButton = findViewById(R.id.TheMoveButton);
+        connection.start();
+
         theButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -35,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    public static connectionThread sendConnection(){
+        return connection;
+    }
     private void reportBug(){
         Button TheButton = findViewById(R.id.ReportaBug2);
         TheButton.setOnClickListener(new View.OnClickListener(){
@@ -55,7 +74,14 @@ public class MainActivity extends AppCompatActivity {
         TV2.setText(ST);
     }
 
-
+    public static void showToast(final String toast)
+    {
+        ma.runOnUiThread(new Runnable() { // this is all required because you can't run UI code on non-UI threads
+            public void run() {
+                Toast.makeText(context, toast, Toast.LENGTH_SHORT).show(); // toast for whatever reason
+            }
+        });
+    }
     private void configurePreviousMsg(){
         //The purpose of this is to populate the "Button Contains Previous Message" list with actual content
         //Each button will need it's own SQL query

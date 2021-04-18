@@ -2,10 +2,15 @@ package com.example.messagenofrag;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.ContextGetter;
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -33,9 +38,16 @@ public class CreateAccount extends AppCompatActivity {
         Button button = findViewById(R.id.btnCreateAccount);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 //Submit the Username and Password to create account
                 //pls do database connection here and do login <3
+                connectionThread connection = MainActivity.sendConnection();
+                String jsonToSend = "{\"pt\" : \"l\", \"Email\" : \"" + UN + "\", \"password\" : \"" + PW + "\"}";
+
+                connection.sendJSON(jsonToSend);
+                connection.username = UN;
+
             }
         });
     }
