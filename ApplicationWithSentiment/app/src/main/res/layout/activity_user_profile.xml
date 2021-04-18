@@ -71,12 +71,6 @@
                 android:text="Edit Profile"
                 app:backgroundTint="#972B2B" />
 
-            <Button
-                android:id="@+id/btn_Block_List"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="View Block List"
-                app:backgroundTint="#000000" />
 
             <Button
                 android:id="@+id/btn_Delete_Account"

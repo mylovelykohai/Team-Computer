@@ -27,6 +27,16 @@ String UN;
         else{
             setName(UN);
         }
+
+        Button emo = (Button) findViewById(R.id.btn_Avg_Emotion);
+        emo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfile.this, Pop.class));
+            }
+
+        });
+
         //ImageView UserIcon = (ImageView) findViewById(R.id.UserIcon);
         //UserIcon.setImageResource(R.drawable.fpscan);
 
