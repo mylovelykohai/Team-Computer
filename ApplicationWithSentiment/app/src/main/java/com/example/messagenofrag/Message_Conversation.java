@@ -50,7 +50,9 @@ public class Message_Conversation extends AppCompatActivity {
     private UsersAdapter mUsersAdapter;
     private int mPos;
     public static String[] emotion;
-    connectionThread connection = new connectionThread(UN,"51.140.241.128",1200);
+    public static int convID = 1; // Josh or someone implement a way to make this be per person on a list.
+
+    connectionThread connection = MainActivity.sendConnection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

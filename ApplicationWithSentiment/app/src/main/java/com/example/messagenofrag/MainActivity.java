@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     static Context context;
 
 
-    static connectionThread connection = new connectionThread("User","172.16.15.90",7777);
+    static connectionThread connection = new connectionThread("User","172.16.15.90",7777); // currently set to dec's local machine
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
