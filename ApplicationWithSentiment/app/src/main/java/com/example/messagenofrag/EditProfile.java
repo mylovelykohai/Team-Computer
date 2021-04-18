@@ -66,7 +66,6 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String status = statEditText.getText().toString();
-                textStatus.setText(status);
                 ST = status;
                 MainActivity.setStatus(ST);
             }

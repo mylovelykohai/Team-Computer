@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         TV2.setText(ST);
     }
 
+
     private void configurePreviousMsg(){
         //The purpose of this is to populate the "Button Contains Previous Message" list with actual content
         //Each button will need it's own SQL query
