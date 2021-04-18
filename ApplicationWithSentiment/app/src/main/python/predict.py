@@ -14,9 +14,9 @@ def pred(text):
     
     resprec = model.predict_proba(text)
     resprec = int(resprec[0][1]*100)
-    print(resprec)
+    resprec = str(resprec)
     
     #The data comes out as a array. Convert into a int
-    res = res[0]
+    res = res[0] + " " + resprec
     
     return res
