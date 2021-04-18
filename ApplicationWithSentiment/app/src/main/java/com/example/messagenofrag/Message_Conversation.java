@@ -25,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import com.chaquo.python.PyObject;
 import com.chaquo.python.android.AndroidPlatform;
 
 import com.chaquo.python.Python;
@@ -47,7 +49,7 @@ public class Message_Conversation extends AppCompatActivity {
     private List<User> mUsers;
     private UsersAdapter mUsersAdapter;
     private int mPos;
-    public static String emotion;
+    public static String[] emotion;
     connectionThread connection = new connectionThread(UN,"51.140.241.128",1200);
 
     @Override
@@ -60,6 +62,7 @@ public class Message_Conversation extends AppCompatActivity {
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message__conversation);
         TextView contact = findViewById(R.id.contact);
@@ -81,7 +84,7 @@ public class Message_Conversation extends AppCompatActivity {
         user.setmMessage(recievedMessage);
         Context TheContext = ContextGetter.getAppContext();
         Log.d("Message Added:", recievedMessage);
-        user.setmEmotion(emotion);
+        user.setmEmotion(emotion[0]);
         UsersBase.get().newMessage(user);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(TheContext, "New message");
         builder.setContentTitle("New message recieved!");
@@ -195,11 +198,12 @@ public class Message_Conversation extends AppCompatActivity {
                 Python python = Python.getInstance();
                 String input = messageObject.returnMessage();
                 Log.d("input:", input);
-                emotion = python.getModule("predict").callAttr("pred", input).toString();
+                emotion = python.getModule("predict").callAttr("pred", input).toString().split(" ");
 
                 connection.sendMessage(message);
                 mEdit.setText("", TextView.BufferType.EDITABLE);
-                Log.d("EMOTION", emotion);
+                Log.d("EMOTION", emotion[0]);
+                Log.d("CONFIDENCE", emotion[1]);
                 }
 
         });
