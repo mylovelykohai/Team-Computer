@@ -105,10 +105,30 @@ class connectionThread extends Thread
                     break;
                 case "m":
                     String ConvID = JSONobject.getString("ConvID");
+                    String emotion = JSONobject.getString("emotion");
                     String displayMessage = JSONobject.getString("username") + ": " + JSONobject.getString("message");
-                    Message_Conversation.SendMsg(displayMessage);
+                    Message_Conversation.SendMsg(displayMessage, emotion);
                     break;
-
+                case "dr":
+                    int deleteStatus = JSONobject.getInt("status");
+                    if(deleteStatus == 1)
+                    {
+                        MainActivity.showToast("Account OBLITERATED!");
+                    }
+                    else
+                    {
+                        MainActivity.showToast("Account not deleted :(");
+                    }
+                case "sr":
+                    int signUpStatus = JSONobject.getInt("status");
+                    if(signUpStatus == 1)
+                    {
+                        MainActivity.showToast("Account Created!");
+                    }
+                    else
+                    {
+                        MainActivity.showToast("Account not created :(");
+                    }
             }
 
         }
@@ -134,9 +154,9 @@ class connectionThread extends Thread
     {
         messageObject.updateMessage(message);
     }
-    public void sendMessage(String message, int convID)
+    public void sendMessage(String message, int convID, String emotion)
     {
-        this.message = "{\"pt\": \"m\", \"Email\" : \"" + username + "\", \"message\" : \"" + message +"\", \"convID\" : " + convID + ", \"sessionID\" : \"" + sessionID + "\"}";
+        this.message = "{\"pt\": \"m\", \"Email\" : \"" + username + "\", \"message\" : \"" + message +"\", \"convID\" : " + convID + ", \"sessionID\" : \"" + sessionID + "\", \"emotion\" : \"" + emotion + "\"}";
         messageObject.updateMessage(this.message);
     }
 

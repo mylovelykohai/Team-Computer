@@ -53,7 +53,7 @@ public class CreateAccount extends AppCompatActivity {
     public void setLogIn(){
         EditText UserName = findViewById(R.id.editTextUsername);
         EditText Password = findViewById(R.id.editTextPassword);
-        Button button = findViewById(R.id.btnCreateAccount);
+        Button button = findViewById(R.id.btnLogIn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
