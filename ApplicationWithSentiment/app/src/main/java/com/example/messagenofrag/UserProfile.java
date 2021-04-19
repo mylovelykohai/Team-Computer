@@ -2,6 +2,8 @@ package com.example.messagenofrag;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,8 @@ String UN;
         ConfigureBackBtn();
         ConfigureProfileBtn();
         reportBug();
+        deleteProfile();
+
         UN = EditProfile.getUN();
         TV = findViewById(R.id.UserName2);
         if(UN.equals("NOTHING YET")){
@@ -81,4 +85,33 @@ String UN;
             }
         });
     }
+
+    private void deleteProfile() {
+        Button btn = findViewById(R.id.btn_Delete_Account);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Delete Profile!!!");
+        alert.setMessage("ARE YOU SURE?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                connectionThread connection = MainActivity.sendConnection();
+                String jsonToSend = "{\"pt\" : \"du\", \"Email\" : \"" + connection.username + "\", \"sessionID\" : \"" + connection.sessionID + "\"}";
+                connection.sendJSON(jsonToSend);
+            }
+        });
+        alert.setNegativeButton("no", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alert.create().show();
+            }
+        });
+    }
 }
+
+
