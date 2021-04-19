@@ -17,10 +17,11 @@ import android.widget.TextView;
 
 public class EditProfile extends AppCompatActivity {
 
-    private static final int GALLERY_REQUEST_CODE = 123;
+    private static final int imgPickCode = 1;
 
-    ImageView UserIcon;
+    ImageView img;
     Button Btn_Change_Picture;
+    Uri imageUri;
 
     TextView txtstat;
     TextView username;
@@ -33,6 +34,7 @@ public class EditProfile extends AppCompatActivity {
 
     static String UN = "NOTHING YET";
     static String ST = "NOTHING YET";
+    static Uri PPcode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class EditProfile extends AppCompatActivity {
         ConfigureBackBtn();
 
         ImageView img = findViewById(R.id.UserIcon);
-        Button btn = findViewById(R.id.Btn_Change_Picture);
+        Button btnPic = findViewById(R.id.Btn_Change_Picture);
 
         EditText nameEditText = findViewById(R.id.editTextUsername);
         EditText statEditText = findViewById(R.id.editTextStatus);
@@ -71,23 +73,34 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //open gallery
-                Intent intent = new Intent();
-                intent.setType("image/^");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Pick an image"), GALLERY_REQUEST_CODE);
+                Intent gallery = new Intent();
+                gallery.setAction(Intent.ACTION_GET_CONTENT);
+                gallery.setType("image/^");
 
-                //ConfigureChangePic();
-
-                //UserIcon = findViewById(R.id.UserIcon);
-                //Btn_Change_Picture = findViewById(Btn_Change_Picture);
+                startActivityForResult(Intent.createChooser(gallery, "Select picture"), imgPickCode);
             }
         });
+
     }
+
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data){
+            super.onActivityResult(requestCode, resultCode, data);
+            if (requestCode == imgPickCode && resultCode == RESULT_OK && data != null){
+                imageUri = data.getData();
+                img.setImageURI(imageUri);
+                PPcode = imageUri;
+                UserProfile.setPP(PPcode);
+
+                }
+            }
+
+
+
+
 
 
         private void ConfigureBackBtn(){
@@ -106,31 +119,9 @@ public class EditProfile extends AppCompatActivity {
         public static String getST(){
             return ST;
         }
-
-
-    //private void ConfigureChangePic(){
-    //    ImageView img = findViewById(R.id.UserIcon);
-    //    Button btn = findViewById(R.id.Btn_Change_Picture);
-    //    btn.setOnClickListener(new View.OnClickListener() {
-    //        @Override
-    //        public void onClick(View v) {
-    //            //open gallery
-    //            Intent intent = new Intent();
-    //            intent.setType("image/^");
-    //            intent.setAction(Intent.ACTION_GET_CONTENT);
-    //            startActivityForResult(Intent.createChooser(intent, "Pick an image", GALLERY_REQUEST_CODE));
-    //        }
-    //    });
-    //}
-
-        //protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
-        //if(requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
-        //Uri imageData = data.getData();
-
-        //UserIcon.setImageURI(imageData);
-        //}
-        //}
-        //)
+        public static Uri getPP(){
+            return PPcode;
+        }
 
 
     }
