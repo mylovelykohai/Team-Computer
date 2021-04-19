@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,10 @@ import android.widget.TextView;
 
 public class UserProfile extends AppCompatActivity {
     static TextView TV;
-String UN;
+    String UN;
+    static ImageView IV;
+    Uri PPcode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,12 +27,19 @@ String UN;
         reportBug();
         deleteProfile();
 
+        PPcode = EditProfile.getPP();
+        IV = findViewById(R.id.UserIcon);
+        if (PPcode == null){
+
+        }else{
+            setPP(PPcode);
+        }
+
         UN = EditProfile.getUN();
         TV = findViewById(R.id.UserName2);
         if(UN.equals("NOTHING YET")){
 
-        }
-        else{
+        }else{
             setName(UN);
         }
 
@@ -38,14 +49,7 @@ String UN;
             public void onClick(View v) {
                 startActivity(new Intent(UserProfile.this, Pop.class));
             }
-
         });
-
-        //ImageView UserIcon = (ImageView) findViewById(R.id.UserIcon);
-        //UserIcon.setImageResource(R.drawable.fpscan);
-
-        //UserIcon.setImageResource(R.drawable.monkey);
-
     }
 
     private void ConfigureBackBtn() {
@@ -76,6 +80,12 @@ String UN;
     public static void setName(String UN){
         TV.setText(UN);
     }
+
+    public static void setPP(Uri PPcode){
+        IV.setImageURI(null);
+        IV.setImageURI(PPcode);
+    }
+
     private void ConfigureProfileBtn() {
         Button theButton = findViewById(R.id.Btn_Edit_Profile);
         theButton.setOnClickListener(new View.OnClickListener() {
