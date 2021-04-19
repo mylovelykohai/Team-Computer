@@ -23,6 +23,9 @@ String UN;
         reportBug();
         deleteProfile();
 
+
+        ImageView UserIcon = (ImageView) findViewById(R.id.UserIcon);
+
         UN = EditProfile.getUN();
         TV = findViewById(R.id.UserName2);
         if(UN.equals("NOTHING YET")){
@@ -41,10 +44,7 @@ String UN;
 
         });
 
-        //ImageView UserIcon = (ImageView) findViewById(R.id.UserIcon);
-        //UserIcon.setImageResource(R.drawable.fpscan);
 
-        //UserIcon.setImageResource(R.drawable.monkey);
 
     }
 
