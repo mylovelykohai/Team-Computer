@@ -19,7 +19,8 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         setBackButton();
-        setSubmit();
+        setCreateAccount();
+        setLogIn();
     }
     public void setBackButton(){
         Button THEBUTTON = findViewById(R.id.btnCreateAccBck);
@@ -30,10 +31,29 @@ public class CreateAccount extends AppCompatActivity {
             }
         });
     }
-    public void setSubmit(){
+    public void setCreateAccount(){
         EditText UserName = findViewById(R.id.editTextUsername);
         EditText Password = findViewById(R.id.editTextPassword);
+        Button button = findViewById(R.id.btnCreateAccount);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                //Submit the Username and Password to create account
+                //pls do database connection here and do login <3
+                String UN = UserName.getText().toString();
+                String PW = Password.getText().toString();
+                connectionThread connection = MainActivity.sendConnection();
+                String jsonToSend = "{\"pt\" : \"l\", \"Email\" : \"" + UN + "\", \"password\" : \"" + PW + "\"}";
 
+                connection.sendJSON(jsonToSend);
+                connection.username = UN;
+            }
+        });
+    }
+    public void setLogIn(){
+        EditText UserName = findViewById(R.id.editTextUsername);
+        EditText Password = findViewById(R.id.editTextPassword);
         Button button = findViewById(R.id.btnCreateAccount);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
