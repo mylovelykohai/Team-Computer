@@ -104,6 +104,7 @@ class connectionThread extends Thread
                     }
                     break;
                 case "m":
+                    String ConvID = JSONobject.getString("ConvID");
                     String displayMessage = JSONobject.getString("username") + ": " + JSONobject.getString("message");
                     Message_Conversation.SendMsg(displayMessage);
                     break;

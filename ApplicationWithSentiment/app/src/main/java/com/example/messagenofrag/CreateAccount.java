@@ -39,12 +39,11 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                //Submit the Username and Password to create account
-                //pls do database connection here and do login <3
+
                 String UN = UserName.getText().toString();
                 String PW = Password.getText().toString();
                 connectionThread connection = MainActivity.sendConnection();
-                String jsonToSend = "{\"pt\" : \"l\", \"Email\" : \"" + UN + "\", \"password\" : \"" + PW + "\"}";
+                String jsonToSend = "{\"pt\" : \"s\", \"Email\" : \"" + UN + "\", \"password\" : \"" + PW + "\"}";
 
                 connection.sendJSON(jsonToSend);
                 connection.username = UN;
@@ -59,8 +58,6 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                //Submit the Username and Password to create account
-                //pls do database connection here and do login <3
                 String UN = UserName.getText().toString();
                 String PW = Password.getText().toString();
                 connectionThread connection = MainActivity.sendConnection();
