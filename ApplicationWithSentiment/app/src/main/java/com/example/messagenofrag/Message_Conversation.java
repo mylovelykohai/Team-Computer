@@ -82,12 +82,12 @@ public class Message_Conversation extends AppCompatActivity {
 
         //connection.start();
     }
-    public static void SendMsg(String recievedMessage){
+    public static void SendMsg(String recievedMessage, String svrEmotion){
         User user = new User();
         user.setmMessage(recievedMessage);
         Context TheContext = ContextGetter.getAppContext();
         Log.d("Message Added:", recievedMessage);
-        user.setmEmotion(emotion[0]);
+        user.setmEmotion(svrEmotion);
         UsersBase.get().newMessage(user);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(TheContext, "New message");
         builder.setContentTitle("New message recieved!");
@@ -200,10 +200,10 @@ public class Message_Conversation extends AppCompatActivity {
 
                 Python python = Python.getInstance();
                 String input = messageObject.returnMessage();
-                Log.d("input:", input);
-                emotion = python.getModule("predict").callAttr("pred", input).toString().split(" ");
+                Log.d("input:", message);
+                emotion = python.getModule("predict").callAttr("pred", message).toString().split(" ");
 
-                connection.sendMessage(message, convID);
+                connection.sendMessage(message, convID, emotion[0]);
                 mEdit.setText("", TextView.BufferType.EDITABLE);
                 Log.d("EMOTION", emotion[0]);
                 Log.d("CONFIDENCE", emotion[1]);
