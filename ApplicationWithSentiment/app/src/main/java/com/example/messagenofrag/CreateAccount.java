@@ -33,8 +33,7 @@ public class CreateAccount extends AppCompatActivity {
     public void setSubmit(){
         EditText UserName = findViewById(R.id.editTextUsername);
         EditText Password = findViewById(R.id.editTextPassword);
-        String UN = UserName.getText().toString();
-        String PW = Password.getText().toString();
+
         Button button = findViewById(R.id.btnCreateAccount);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,12 +41,13 @@ public class CreateAccount extends AppCompatActivity {
             {
                 //Submit the Username and Password to create account
                 //pls do database connection here and do login <3
+                String UN = UserName.getText().toString();
+                String PW = Password.getText().toString();
                 connectionThread connection = MainActivity.sendConnection();
                 String jsonToSend = "{\"pt\" : \"l\", \"Email\" : \"" + UN + "\", \"password\" : \"" + PW + "\"}";
 
                 connection.sendJSON(jsonToSend);
                 connection.username = UN;
-
             }
         });
     }
