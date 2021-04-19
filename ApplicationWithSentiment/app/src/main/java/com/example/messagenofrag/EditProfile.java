@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -16,16 +15,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.IOException;
-
 public class EditProfile extends AppCompatActivity {
 
-    private static final int imgPickCode = 100;
-    private static final int permCode = 101;
+    private static final int GALLERY_REQUEST_CODE = 123;
 
     ImageView UserIcon;
     Button Btn_Change_Picture;
-    Uri imageUri;
 
     TextView txtstat;
     TextView username;
@@ -46,7 +41,7 @@ public class EditProfile extends AppCompatActivity {
         ConfigureBackBtn();
 
         ImageView img = findViewById(R.id.UserIcon);
-        Button btnPic = findViewById(R.id.Btn_Change_Picture);
+        Button btn = findViewById(R.id.Btn_Change_Picture);
 
         EditText nameEditText = findViewById(R.id.editTextUsername);
         EditText statEditText = findViewById(R.id.editTextStatus);
@@ -58,7 +53,6 @@ public class EditProfile extends AppCompatActivity {
         TextView textStatus = findViewById(R.id.textView22);
 
         updateName.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 String name = nameEditText.getText().toString();
@@ -77,32 +71,23 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
-        btnPic.setOnClickListener(new View.OnClickListener() {
+
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gallery = new Intent();
-                gallery.setAction(Intent.ACTION_GET_CONTENT);
-                gallery.setType("image/^");
+                //open gallery
+                Intent intent = new Intent();
+                intent.setType("image/^");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Pick an image"), GALLERY_REQUEST_CODE);
 
-                startActivityForResult(Intent.createChooser(gallery, "Select picture"), imgPickCode);
+                //ConfigureChangePic();
+
+                //UserIcon = findViewById(R.id.UserIcon);
+                //Btn_Change_Picture = findViewById(Btn_Change_Picture);
             }
         });
-
     }
-
-        @Override
-        protected void onActivityResult(int requestCode, int resultCode, Intent data){
-            super.onActivityResult(requestCode, resultCode, data);
-            if (requestCode == imgPickCode && resultCode == RESULT_OK && data != null){
-                imageUri = data.getData();
-                UserIcon.setImageURI(imageUri);
-
-                }
-            }
-
-
-
-
 
 
         private void ConfigureBackBtn(){
@@ -115,14 +100,37 @@ public class EditProfile extends AppCompatActivity {
                 }
             });
         }
-
-
         public static String getUN(){
             return UN;
         }
         public static String getST(){
             return ST;
         }
+
+
+    //private void ConfigureChangePic(){
+    //    ImageView img = findViewById(R.id.UserIcon);
+    //    Button btn = findViewById(R.id.Btn_Change_Picture);
+    //    btn.setOnClickListener(new View.OnClickListener() {
+    //        @Override
+    //        public void onClick(View v) {
+    //            //open gallery
+    //            Intent intent = new Intent();
+    //            intent.setType("image/^");
+    //            intent.setAction(Intent.ACTION_GET_CONTENT);
+    //            startActivityForResult(Intent.createChooser(intent, "Pick an image", GALLERY_REQUEST_CODE));
+    //        }
+    //    });
+    //}
+
+        //protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
+        //if(requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null){
+        //Uri imageData = data.getData();
+
+        //UserIcon.setImageURI(imageData);
+        //}
+        //}
+        //)
 
 
     }
