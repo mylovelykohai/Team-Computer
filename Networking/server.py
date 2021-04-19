@@ -3,7 +3,7 @@ import socket # for sockets
 import time # time functions
 import threading # allows us to run more than one thread
 import json # easy json manipulation
-import urllib # percent code shenanigans 
+import urllib.parse # percent code shenanigans 
 
 import mysql.connector
 from mysql.connector import pooling # for database interactions
@@ -38,10 +38,10 @@ config = { # configs for the mySQL database system, update 'user', 'password' an
   'pool_name': 'pool',
   'pool_reset_session': True,
   'pool_size' : 32,
-  'user': 'root',
+  'user': 'phpmyadmin',
   'password': 'PhpMyAdmin!23',
   'host': '127.0.0.1',
-  'database': 'MASTER',
+  'database': 'Master',
   'raise_on_warnings': True
 }
 
@@ -99,9 +99,9 @@ def signup(pPacket, cID):
     result = runDBCommand('''SELECT EXISTS(SELECT * from User WHERE Email = "%s")''' % Email) # check user is in database
 
     if(result[0] != 1): # if they're not
-
         passwordHash, salt = hash_password(password)
         runDBCommand('''INSERT INTO User (FullName, Email, password, salt) VALUES ("%s", "%s", "%s", "%s");''' % ("noName", Email, passwordHash, salt)) # add them with a noName variable to be updated later
+    
     packetJSON[cID] = '{"pt" : "sr", "status" : 1}\n' # return status packet
     packetToSend[cID] = True; 
 
@@ -116,8 +116,6 @@ def login(pPacket, cID):
     storedPassword = runDBCommand('''SELECT password from User WHERE Email = "%s"''' % Email)[0]
 
     passwordHash = verify_password(storedPassword, password, salt);
-
-    # result = runDBCommand('''SELECT EXISTS(SELECT * from User WHERE Email = "%s" AND password = "%s")''' % (Email, passwordHash)) #check if their user name and password is right
   
     sessionID = "";
 
